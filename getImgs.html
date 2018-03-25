@@ -51,7 +51,7 @@
 	<body>
 		
 			<label for="">URL：</label>
-			<input type="text" name="ourl" id="ourl" value="" placeholder="输入链接"/>
+			<input type="text" name="ourl" id="ourl" value="http://www.biqugex.com/book_835/12904736.html" placeholder="输入链接"/>
 			<button id="btn">确定</button>
 			
 			<div class="mask">
@@ -74,7 +74,29 @@
 						ourl:$('#ourl').val()
 					},
 					success:function(data){
-						console.log(data);
+						//使用对象来接收的时候下一步转换成数组就比较方便。
+						var myjson={};
+						data.data.forEach((item)=>{
+							if(!myjson[item]){
+								myjson[item]=1;
+							}else{
+								myjson[item]+=1;
+							}
+						})
+						var myarr=[];
+						for(var t in myjson){
+							if(myjson[t]<=3){
+								continue;
+							}
+							myarr.push({
+								name:t,
+								value:myjson[t]
+							})
+						}
+						myarr=myarr.sort(function(a,b){
+							return b.value-a.value;
+						})
+						console.log(myarr);
 						$('.mask').hide();
 					}
 				});

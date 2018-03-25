@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">获取数据</button>
+		<h4>呵呵呵呵</h4>
+		<div id="box"style="width: 600px;height: 500px;border: 1px solid #ccc;"></div>
+		
+		
+
+		
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="echarts.min.js"></script>
+		<script type="text/javascript">
+			var box=document.getElementById('box');
+			console.log(echarts);
+			var myechart=echarts.init(box);
+			
+			
+			
+			
+				$('#btn').on('click',function(){
+//				$('.mask').show();
+//				setTimeout(()=>{
+//					$('.mask').hide();
+//				},5000)
+				$.ajax({
+					type:"get",
+					url:"http://localhost:8080/xiaoshuo",
+					data:{
+						ourl:'http://www.biqugex.com/book_835/796591.html'
+					},
+					success:function(data){
+						//使用对象来接收的时候下一步转换成数组就比较方便。
+						var myjson={};
+						data.data.forEach((item)=>{
+							if(!myjson[item]){
+								myjson[item]=1;
+							}else{
+								myjson[item]+=1;
+							}
+						})
+						var myarr=[];
+						for(var t in myjson){
+							if(myjson[t]<=3){
+								continue;
+							}
+							myarr.push({
+								name:t,
+								value:myjson[t]
+							})
+						}
+						myarr=myarr.sort(function(a,b){
+							return b.value-a.value;
+						})
+						
+						//饼状图type为pie
+						var option={
+							title:{
+								text:'数据统计',
+								subtext:'副标题',
+								x:'center',
+								y:'top'
+							},
+						 	tooltip: {    
+			                    //触发类型，默认（'item'）数据触发，可选为：'item' | 'axis'    
+			//                  trigger: 'item'    
+			                },    
+							link:'http://baidu.com',
+							series:[{
+								name:'数据统计',
+								type:'pie',
+								data:myarr
+							}]
+						}
+						
+						
+						
+						myechart.setOption(option);
+						console.log(myarr);
+//						$('.mask').hide();
+					}
+				});
+			})
+
+			
+			
+//			myechart.setOption(option);
+		</script>
+	</body>
+</html>
