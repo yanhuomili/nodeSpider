@@ -1,0 +1,176 @@
+html,
+body,
+div,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+a,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+textarea,
+button,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  background: transparent;
+  border: 0;
+  font-size: 14px;
+  max-height: 99999px;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  vertical-align: baseline;
+  list-style: none;
+  text-decoration: none;
+  box-sizing:border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+html {
+  font-family: "SimSun","宋体","Arial Narrow";
+  overflow: scroll;
+  background-color:#f6f6f6;
+}
+
+@charset "UTF-8";
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none; }   /*去掉input等聚焦时的蓝色边框*/
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family: "Microsoft YaHei","宋体";}
+select, input { vertical-align:middle;}
+select, input, textarea {  margin:0; }
+textarea { resize:none; } /*防止拖动*/
+img {border:0; vertical-align:middle; }  /*  去掉图片低测默认的3像素空白缝隙，或者用display：block也可以*/
+table { border-collapse:collapse; }
+body {
+    overflow: scroll;
+    background-color:#f6f6f6;
+    font-family:'Microsoft YaHei','Arial','Verdana';
+    color:#1a1a1a;
+    background:#fff;
+    box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    font-size:14px;
+}
+.clearfix:before,.clearfix:after {  /*清除浮动*/
+    content:'';
+    height:0;
+    line-height:0;
+    display:block;
+    visibility:hidden;
+    clear:both;
+}
+.clearfix:after{clear:both;}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+a {color:#666; text-decoration:none; }
+a:hover{color:#C81623;}
+s,i,em{font-style:normal;text-decoration:none;}
+.col-red{color: #C81623!important;}
+
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.pr{
+  position: relative;
+}
+.pa{
+  position: absolute;
+}
+.divsion{
+  padding: 60px;
+}
+.text_center{
+  text-align: center
+}
+.text_left{
+  text-align: left;
+}
+html,body{
+  height: 100% ;
+  position: relative
+}
+.el-container{
+  height: 100%;
+}
+/* register model's footer skip commoncitytStyle*/
+.help {
+  text-align: right;
+  margin-right: 5px;
+  font-size: 14px;
+}
+.help .help_account,
+help_pwd {
+  border-right: 1px solid rgb(144, 147, 153);
+  padding-right: 10px;
+}
+
+/*lhh 自定义css布局全局样式*/
+.row-l{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.row-r{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.row-c{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.row-lr{
+	display: flex;
+	justify-content: space-between;
+	/*align-items: center;*/
+}

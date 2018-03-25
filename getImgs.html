@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网络爬虫,收集图片</title>
+		<style type="text/css">
+			body{
+				padding: 200px;
+			}
+			#ourl{
+				width: 500px;
+				height: 30px;
+				text-indent: 5px;
+			}
+			#btn{
+				display:block;
+				margin-top: 10px;
+				padding: 10px 25px ;
+				border: none;
+				background: #00C1DE;
+				color: #fff;
+			}
+			.mask{
+				width: 100%;
+				height: 100vh;
+				background: rgba(0,0,0,.4);
+				position: fixed;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			.tip{
+				padding: 50px;
+				background:rgba(8,8,8,.6);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				border-radius: 10px;
+				color: #eee;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			.tip img{
+				max-width: 40px;
+				margin-top: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		
+			<label for="">URL：</label>
+			<input type="text" name="ourl" id="ourl" value="" placeholder="输入链接"/>
+			<button id="btn">确定</button>
+			
+			<div class="mask">
+				<div class="tip">
+					<span>图片下载中</span>
+					<img src="loading.gif"/>
+				</div>
+			</div>
+		<script src="jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			$('#btn').on('click',function(){
+				$('.mask').show();
+				setTimeout(()=>{
+					$('.mask').hide();
+				},5000)
+				$.ajax({
+					type:"get",
+					url:"http://localhost:8080/getUrl",
+					data:{
+						ourl:$('#ourl').val()
+					},
+					success:function(data){
+						console.log(data);
+						$('.mask').hide();
+					}
+				});
+			})
+		</script>
+	</body>
+</html>

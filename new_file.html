@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h4>呵呵呵呵</h4>
+		<div id="box"style="width: 600px;height: 500px;border: 1px solid #ccc;"></div>
+		
+		
+		<script type="text/javascript" src="echarts.min.js"></script>
+		<script type="text/javascript">
+			var box=document.getElementById('box');
+			console.log(echarts);
+			var myechart=echarts.init(box);
+//			 var option = {
+//	            title: {
+//	                text: 'ECharts 入门示例'
+//	            },
+//	            tooltip: {},
+//	            legend: {
+//	                data:['销量']
+//	            },
+//	            xAxis: {
+//	                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+//	            },
+//	            yAxis: {},
+//	            series: [{
+//	                name: '销量',
+//	                type: 'bar',
+//	                data: [5, 20, 36, 10, 10, 20]
+//	            }]
+//	        };
+
+
+			//柱状图：type为bar 
+//			var option={
+//				title:{
+//					text:'第一个echarts图标'
+//				},
+//				tooltip:{},
+//				legend:{
+//					data:['数据']
+//				},
+//				xAxis:{
+//					data:['前端','后台','nodejs','vue','react','angular']
+//				},
+//				yAxis:{},
+//				series:[{
+//					name:'数据',
+//					type:'bar',
+//					data:[60,75,67,32,99,150]
+//				}]
+//			}
+			
+			
+			//饼状图type为pie
+			var option={
+				title:{
+					text:'数据统计',
+					subtext:'副标题',
+					x:'center',
+					y:'top'
+				},
+			 	tooltip: {    
+                    //触发类型，默认（'item'）数据触发，可选为：'item' | 'axis'    
+//                  trigger: 'item'    
+                },    
+				link:'http://baidu.com',
+				series:[{
+					name:'数据统计',
+					type:'pie',
+					data:[
+						{value:66,name:'前端'},
+						{value:33,name:'后台'},
+						{value:65,name:'node'},
+						{value:81,name:'angular'},
+						{value:131,name:'react'},
+						{value:99,name:'vue'},
+					]
+				}]
+			}
+			
+			myechart.setOption(option);
+			
+		</script>
+	</body>
+</html>
